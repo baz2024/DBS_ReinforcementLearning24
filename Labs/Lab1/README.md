@@ -35,13 +35,14 @@ If you find your own machine not performant enough for your needs, please consid
 * [[AWS] ](https://www.aws.com/)
 
 ## To complete this week's Lab try to finish the following exercises
-- [x]  [01_introduction](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/01_introduction.ipynb)
-- [x]  [02_python_overview](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/02_python_overview.ipynb)
-
-- [x] [03_python_detailed](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/03_python_detailed.ipynb)
+- [x][01_introduction](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/01_introduction.ipynb)
+- [x][02_python_overview](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/02_python_overview.ipynb)
+- [x][03_python_detailed](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/03_python_detailed.ipynb)
 # You might consider reviewing your Python knowledge for scientific computing by attempting the following labs.
 - 04_numpy
 - 05_matplotlib
 - 06_scipy
 - 07-01_pandas
 - 07-02_pandas-apply
+# To install Open AI GYM 
+[Follow this tutorial ](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/Tutorial%201.md)
