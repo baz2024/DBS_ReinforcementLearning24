@@ -18,10 +18,14 @@ All exercises are based on Python 3.9 and site-packages according to the require
 
 01. Basics of Python for Scientific Computing 
     
+<<<<<<< HEAD
     * [Tutorial template](../Labs/Lab1/)
 <<<<<<< HEAD
     * [Tutorial solution](TBA) 
 =======
+=======
+    * [Tutorial template](https://github.com/baz2024/DBS_ReinforcementLearning24/tree/main/Labs/Lab1)
+>>>>>>> a2e4f82 (add link)
     * [Tutorial solution]() 
 >>>>>>> 55b4722 (url fix)
  
