@@ -12,16 +12,10 @@ the successful delivery of competitive practical solutions to real-world problem
 
 
 # Weekly Labs
-All exercises are based on Python 3.9 and site-packages according to the requirements.txt:
-```
->>> pip install setuptools==65.5.0
 
-01. Basics of Python for Scientific Computing 
-    
- 
-    * [LAB 1 Sheet](./Labs/Lab1/README.md)
-
-    * [Lab 1 solution](TBA) 
+01. Basics of Python for Scientific Computing
+* [Lab 1 Sheet](https://github.com/baz2024/DBS_ReinforcementLearning24/tree/main/Labs/Lab1)
+* [Lab 1 solution](TBA) 
  
  
 
