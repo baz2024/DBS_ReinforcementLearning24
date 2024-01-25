@@ -39,7 +39,7 @@ If you find your own machine not performant enough for your needs, please consid
 - [x]  [02_python_overview](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/02_python_overview.ipynb)
 
 - [x] [03_python_detailed](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab1/03_python_detailed.ipynb)
-# Optionaly to review your knowldge of python for Scientific Computing you can attempt the following Labs
+# You might consider reviewing your Python knowledge for scientific computing by attempting the following labs.
 - 04_numpy
 - 05_matplotlib
 - 06_scipy
