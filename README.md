@@ -19,7 +19,7 @@ All exercises are based on Python 3.9 and site-packages according to the require
 01. Basics of Python for Scientific Computing 
     
  
-    * [LAB 1 Sheet](https://github.com/baz2024/DBS_ReinforcementLearning24/tree/main/Labs/Lab1)
+    * [LAB 1 Sheet](./Labs/Lab1/README.md)
 
     * [Lab 1 solution](TBA) 
  
