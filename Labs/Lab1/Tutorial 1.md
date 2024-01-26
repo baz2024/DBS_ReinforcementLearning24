@@ -49,4 +49,70 @@ import gym
 envs = gym.envs.registry.all()
 print(envs)
 print('Total envs available:', len(envs))
-```
+```## Creating our first Gym environment
+We've discovered that Gym offers a range of environments for training a reinforcement learning agent. To gain a clear understanding of Gym's environment design, we'll begin with the basic Gym environment. Following that, we'll delve into more complex Gym environments.
+
+# Creating Your First Gym Environment
+
+## Step 1: Install Gym
+First, make sure you have Gym installed. If not, you can install it using pip:
+```bash
+pip install gym
+```
+## Step 2: Create a New Python File
+Create a new Python file for your Gym environment. You can name it whatever you like, such as custom_env.py.
+## Step 3: Import Gym and NumPy
+In your Python file, import Gym and NumPy:
+```
+import gym
+import numpy as np
+```
+## Step 4: Define Your Environment Class
+Create a class for your custom environment. Your class should inherit from the gym.Env class and implement the required methods: __init__, reset, step, and optionally render.
+```
+class CustomEnv(gym.Env):
+    def __init__(self):
+        # Define your environment's parameters here
+        pass
+
+    def reset(self):
+        # Reset the environment to its initial state and return the initial observation
+        pass
+
+    def step(self, action):
+        # Take a step in the environment based on the given action and return the next observation, reward, done flag, and additional info
+        pass
+
+    def render(self, mode='human'):
+        # Render the environment (optional)
+        pass
+```
+## Step 5: Implement the Environment Logic
+Inside your __init__ method, you can define any parameters or variables needed for your environment. In the reset method, reset your environment to its initial state and return the initial observation. In the step method, implement the logic for taking a step based on the given action and return the next observation, reward, done flag, and additional info.
+## Step 6: Register Your Environment
+Register your custom environment with Gym using the gym.make method. This will allow you to create instances of your environment using Gym's standard interface.
+```
+gym.register(
+    id='CustomEnv-v0',
+    entry_point='custom_env:CustomEnv',  # Replace 'custom_env' with the name of your Python file
+)
+```
+## Step 7: Test Your Environment
+You can now test your custom environment by creating an instance of it and interacting with it using Gym's standard interface:
+```
+env = gym.make('CustomEnv-v0')
+observation = env.reset()
+for _ in range(1000):
+    action = env.action_space.sample()  # Replace with your own action selection logic
+    observation, reward, done, info = env.step(action)
+    if done:
+        break
+env.close()
+
+```
+
+
+
+
+
+
