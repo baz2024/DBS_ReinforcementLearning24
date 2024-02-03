@@ -28,6 +28,11 @@ Scenario:
 Consider a 3x3 grid where the agent can move left, right, up, or down. The grid has a reward of −1 for each step, and the agent receives a reward of +10 for reaching the goal state. The discount factor γ is set to 0.9. We’ll use the first-visit Monte Carlo method to estimate the value function.
 In this Lab we can find the following examples:
 1. Example: Monte Carlo Method for Grid World
+2. Monte Carlo Control with Epsilon-Greedy Policy
+3. Monte Carlo Prediction Algorithm
+4. Monte Carlo Control Algorithm
+5. Monte Carlo Control with Exploring Starts
+
 
 In This Lab we can find the following resources
 1.  BlackJack with First visit MC
