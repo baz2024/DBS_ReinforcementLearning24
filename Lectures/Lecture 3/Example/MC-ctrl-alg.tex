@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Monte Carlo Control Algorithm}
+
+\textbf{Input}:
+\begin{itemize}
+    \item Policy \( \pi \)
+    \item Number of episodes \( N \)
+\end{itemize}
+
+\textbf{Initialization}:
+\begin{itemize}
+    \item Initialize empty arrays \( Returns(s, a) \) and \( Visits(s, a) \) for each state \( s \) and action \( a \)
+    \item Initialize action-value function \( Q(s, a) \) for each state \( s \) and action \( a \) with arbitrary values
+\end{itemize}
+
+\textbf{Algorithm}:
+\begin{enumerate}
+    \item \textbf{For} each episode \( i = 1, 2, \ldots, N \) \textbf{do}:
+        \begin{itemize}
+            \item Generate an episode following policy \( \pi \): \( (s_0, a_0, r_1, s_1, a_1, r_2, \ldots, s_T) \)
+            \item \( G \leftarrow 0 \)
+            \item \textbf{For} each step \( t = T-1, T-2, \ldots, 0 \) \textbf{do}:
+                \begin{itemize}
+                    \item \( G \leftarrow \gamma G + r_{t+1} \) \quad (where \( \gamma \) is the discount factor)
+                    \item \textbf{If} \( (s_t, a_t) \) is not in the episode history from time step \( 0 \) to \( t-1 \) \textbf{then}:
+                        \begin{itemize}
+                            \item Append \( G \) to \( Returns(s_t, a_t) \)
+                            \item Increment \( Visits(s_t, a_t) \) by \( 1 \)
+                            \item Update action-value function \( Q(s_t, a_t) \) based on \( Returns(s_t, a_t) \) and \( Visits(s_t, a_t) \):
+                                \[
+                                Q(s_t, a_t) = \frac{1}{Visits(s_t, a_t)} \sum_{i=1}^{Visits(s_t, a_t)} Returns(s_t, a_t)[i]
+                                \]
+                        \end{itemize}
+                \end{itemize}
+        \end{itemize}
+\end{enumerate}
+
+\textbf{Output}: Estimated action-value function \( Q(s, a) \) and optimal policy \( \pi^* \)
+
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Monte Carlo Control with Epsilon-Greedy Policy}
+
+\textbf{Input}:
+\begin{itemize}
+    \item Environment with states \( S \) and actions \( A \)
+    \item Number of episodes \( N \)
+    \item Discount factor \( \gamma \)
+    \item Exploration parameter \( \epsilon \)
+\end{itemize}
+
+\textbf{Initialization}:
+\begin{itemize}
+    \item Initialize action-value function \( Q(s, a) \) arbitrarily for all \( s \) and \( a \)
+    \item Initialize \( N(s, a) = 0 \) for all \( s \) and \( a \)
+\end{itemize}
+
+\textbf{Algorithm}:
+\begin{enumerate}
+    \item \textbf{For} each episode \( i = 1, 2, \ldots, N \) \textbf{do}:
+    \begin{itemize}
+        \item Generate an episode using policy derived from \( Q \) (e.g., epsilon-greedy)
+        \item \( G \leftarrow 0 \)
+        \item \textbf{For} each step \( t = T-1, T-2, \ldots, 0 \) \textbf{do}:
+        \begin{itemize}
+            \item \( G \leftarrow \gamma G + R_{t+1} \) \quad \textit{// Incrementally calculate return}
+            \item \textbf{If} \( S_t, A_t \) not in episode history from time step 0 to \( t-1 \) \textbf{then}:
+            \begin{itemize}
+                \item \( N(S_t, A_t) \leftarrow N(S_t, A_t) + 1 \)
+                \item \( Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \frac{1}{N(S_t, A_t)} (G - Q(S_t, A_t)) \) \quad \textit{// Update action-value function}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Output}: Optimal policy \( \pi \) derived from \( Q \)
+
+\end{document}

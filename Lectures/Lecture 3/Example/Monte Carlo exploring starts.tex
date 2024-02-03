@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Monte Carlo Control with Exploring Starts}
+
+\textbf{Input}:
+\begin{itemize}
+    \item Environment with states \( S \), actions \( A \), transition probabilities \( P \), rewards \( R \), and discount factor \( \gamma \).
+    \item Number of episodes \( N \).
+\end{itemize}
+
+\textbf{Initialization}:
+\begin{itemize}
+    \item Initialize action-value function \( Q(s, a) \) arbitrarily for all \( s \) and \( a \).
+    \item Initialize state-action visit count \( N(s, a) = 0 \) for all \( s \) and \( a \).
+    \item Initialize policy \( \pi \) with random actions for each state-action pair.
+\end{itemize}
+
+\textbf{Algorithm}:
+\begin{enumerate}
+    \item **For** each episode \( i = 1, 2, \ldots, N \) **do**:
+        \begin{itemize}
+            \item Choose a state \( s_0 \) and action \( a_0 \) arbitrarily, using exploring starts.
+            \item Generate an episode following policy \( \pi \): \( (s_0, a_0, r_1, s_1, a_1, r_2, \ldots, s_T) \).
+            \item \( G \leftarrow 0 \)
+            \item **For** each step \( t = T-1, T-2, \ldots, 0 \) **do**:
+                \begin{itemize}
+                    \item \( G \leftarrow \gamma G + r_{t+1} \)
+                    \item **If** \( (s_t, a_t) \) is not in the episode history from time step \( 0 \) to \( t-1 \) **then**:
+                        \begin{itemize}
+                            \item Increment \( N(s_t, a_t) \) by \( 1 \)
+                            \item Update action-value function \( Q(s_t, a_t) \) based on \( G \) and \( N(s_t, a_t) \):
+                                \[ Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \frac{1}{N(s_t, a_t)} (G - Q(s_t, a_t)) \]
+                            \item Update policy \( \pi \) to be greedy with respect to \( Q \):
+                                \[ \pi(s_t) \leftarrow \text{argmax}_a Q(s_t, a) \]
+                        \end{itemize}
+                \end{itemize}
+        \end{itemize}
+\end{enumerate}
+
+\textbf{Output}: Optimized policy \( \pi \) based on the estimated action-value function \( Q \).
+
+\end{document}
