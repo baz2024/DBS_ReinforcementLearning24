@@ -1,4 +1,4 @@
-# Solving the Frozen Lake Problem with Value Iteration
+# Example 3: Solving the Frozen Lake Problem with Value Iteration
 
 The Frozen Lake problem is a classic grid world problem where an agent
 must navigate from a starting point to a goal while avoiding holes
@@ -59,14 +59,17 @@ function *V*<sup>\*</sup>(*s*) and the optimal policy
 maximizes the expression inside the max  operator in the Bellman
 optimality equation.
 ```
-import gymnusim
+import gym
 import numpy as np
 
 # Create the Frozen Lake environment
-env = gym.make('FrozenLake-v1')
+env = gym.make('FrozenLake-v1', render_mode='human')
 
 # Initialize the value function V(s) to zeros
 V = np.zeros(env.observation_space.n)
+
+# Initialize the policy array with random actions
+policy = np.random.randint(0, env.action_space.n, env.observation_space.n)
 
 # Set the discount factor
 gamma = 0.9
@@ -85,8 +88,9 @@ while True:
     if delta < epsilon:
         break
 
-# Extract the optimal policy from the optimal value function
-policy = np.array([np.argmax([sum([p*(r + gamma*V[s_]) for p, s_, r, _ in env.P[s][a]]) for a in range(env.action_space.n)]) for s in range(env.observation_space.n)])
+# Update the policy based on the optimal value function V
+for s in range(env.observation_space.n):
+    policy[s] = np.argmax([sum([p*(r + gamma*V[s_]) for p, s_, r, _ in env.P[s][a]]) for a in range(env.action_space.n)])
 
 # Display the optimal policy
 print("Optimal policy:")
@@ -96,11 +100,13 @@ print(policy.reshape((4, 4)))
 total_reward = 0
 num_episodes = 100
 for _ in range(num_episodes):
-    state = env.reset()
+    state = env.reset(seed=0)[0]
     done = False
     while not done:
         action = policy[state]
-        state, reward, done, _ = env.step(action)
+        state, reward, done, info, _ = env.step(action)
+        print('We are in State: ' + str(state) +  'getting reward: ' + str(reward) + 'after doing action:' + str(action))
+
         total_reward += reward
 
 # Calculate the average reward

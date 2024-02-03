@@ -17,3 +17,10 @@ Imagine, there is a simple grid world with three states: $S1$, $S2$, and $G$, re
 The environment provides a reward of -1 for each step the agent takes, representing the cost of movement, and a reward of +10 for reaching the goal state $G$, representing the final goal achievement.
 
 The discount factor $\gamma$ is set to 0.9, which determines the importance of future rewards relative to immediate rewards. A higher $\gamma$ value indicates that the agent values future rewards more, leading to longer-term planning, while a lower $\gamma$ value gives more weight to immediate rewards, focusing on short-term gains. In this scenario, a $\gamma$ value of 0.9 suggests that the agent considers both short-term and long-term rewards, balancing the trade-off between immediate gains and future benefits.
+
+1. [Example 1:The Bellman equation of the value function](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab3/example1.md)
+2. [Example 2: The Bellman equation of the Q function](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab3/example2.md)
+3. [Example 3: Solving the Frozen Lake Problem with Value Iteration Basic](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab3/example3-sol.ipynb)
+4. [Solving Frozen Lake Problem Using Value Iteration](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab3/example3-sol.ipynb)
+5. [Solving Frozen Lake Problem Using Policy Iteration](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab3/3.13%20Policy%20Iteration%20-%20Frozen%20Lake%20Problem.ipynb)
+
