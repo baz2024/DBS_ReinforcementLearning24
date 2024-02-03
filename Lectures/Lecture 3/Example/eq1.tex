@@ -1,1 +1,22 @@
-V^*(s) = \max_{a} \left( R(s, a) + \gamma \sum_{s'} P(s' | s, a) V^*(s') \right)
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+The Monte Carlo method is a technique for estimating the value function in reinforcement learning. The equation for estimating the value of a state $s$ using the Monte Carlo method is given by:
+
+\[
+V(s) = \frac{1}{N(s)} \sum_{i=1}^{N(s)} G_i
+\]
+
+where:
+\begin{itemize}
+    \item $V(s)$ is the estimated value of state $s$,
+    \item $N(s)$ is the number of times state $s$ has been visited,
+    \item $G_i$ is the return (cumulative reward) from the $i$-th visit to state $s$,
+    \item The sum is taken over all $N(s)$ visits to state $s$.
+\end{itemize}
+
+This equation represents the average of all returns observed from visits to state $s$, providing an estimate of its value based on empirical data.
+
+\end{document}

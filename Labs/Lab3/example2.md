@@ -65,3 +65,4 @@ $$Q(S, \text{down}) = -1$$
 These updated Q-values reflect the expected cumulative rewards the agent
 can achieve from each state-action pair following an optimal policy in
 the grid world environment.
+#### More detailed soilution can be found in this [example](https://github.com/baz2024/DBS_ReinforcementLearning24/blob/main/Labs/Lab3/Example2b.pdf) 

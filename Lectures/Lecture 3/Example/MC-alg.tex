@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\section*{Monte Carlo Prediction Algorithm}
+
+\begin{algorithm}
+\caption{Monte Carlo Prediction}
+\begin{algorithmic}[1]
+\STATE Initialize: $\forall s \in \mathcal{S}, \hat{V}(s) \leftarrow 0$, $N(s) \leftarrow 0$
+\FOR{$k = 1, 2, \ldots, K$}
+    \STATE Generate an episode following policy $\pi$: $S_0, A_0, R_1, \ldots, S_T$
+    \STATE $G \leftarrow 0$
+    \FOR{$t = T-1, T-2, \ldots, 0$}
+        \STATE $G \leftarrow \gamma G + R_{t+1}$
+        \IF{$S_t$ not in $S_0, S_1, \ldots, S_{t-1}$}
+            \STATE $N(S_t) \leftarrow N(S_t) + 1$
+            \STATE $\hat{V}(S_t) \leftarrow \hat{V}(S_t) + \frac{1}{N(S_t)} (G - \hat{V}(S_t))$
+        \ENDIF
+    \ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
