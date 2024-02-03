@@ -9,7 +9,6 @@ through sampling.
 1. By using the Monte Carlo method, designers can make informed decisions based on data-driven insights and reduce the risk of costly errors in their designs.
 1. The Monte Carlo method approximates the expectation of a random variable by sampling, with better approximations resulting from larger sample sizes. To compute the expected value of a random variable X, the sum of the values of X multiplied by their respective probabilities is taken
 
-Scenario:
 # Solving Simple Grid Using Monte Carlo Methods
 ## Goal:
 
