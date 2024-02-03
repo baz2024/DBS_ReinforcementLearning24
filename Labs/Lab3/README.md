@@ -4,10 +4,15 @@ In reinforcement learning, the Bellman equations play a fundamental role in unde
 
 Let's explore the following example to understand how we can apply both the Bellman equation of the value function and the Bellman equation of the Q function to solve it.
 Scenario:
-# Solving Frozen Lake Problem Using Value Iteration
+# Solving Simple Grid Using Value & Policy Iteration 
 ## Goal:
 
 Imagine, there is a simple grid world with three states: $S1$, $S2$, and $G$, representing the starting state, an intermediate state, and the goal state, respectively. The agent has two possible actions in each state: left and right. 
+
+
+1. S1 is the starting position 
+2. S2 is the next state
+3. G is the Goal (office)
 
 The environment provides a reward of -1 for each step the agent takes, representing the cost of movement, and a reward of +10 for reaching the goal state $G$, representing the final goal achievement.
 
