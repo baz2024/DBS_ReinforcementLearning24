@@ -1,8 +1,4 @@
-::: Large
-Example 2: The Bellman equation of the Q function
-:::
-
-\
+ ### Example 2: The Bellman equation of the Q function
 Consider a simple grid world where an agent can move left, right, up, or
 down. The grid has a reward of $-1$ for each step, and the agent
 receives a reward of $+10$ for reaching the goal state. The discount
