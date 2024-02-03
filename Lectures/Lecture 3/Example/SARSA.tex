@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{SARSA Algorithm for Grid World}
+
+Let's consider a simple grid world with 3x3 cells, where the agent can move up, down, left, or right. The grid has a start state \( S \) and a goal state \( G \). The agent receives a reward of -1 for each step and a reward of +10 for reaching the goal state. The discount factor \( \gamma \) is set to 0.9.
+
+\textbf{Initialization}:
+\begin{itemize}
+    \item Initialize the action-value function \( Q(s, a) \) arbitrarily for all \( s \) and \( a \).
+    \item Initialize the state \( S \) to the start state.
+    \item Choose an action \( A \) using an exploration policy (e.g., epsilon-greedy).
+\end{itemize}
+
+\textbf{Algorithm}:
+\begin{enumerate}
+    \item \textbf{Repeat} for each time step:
+    \begin{itemize}
+        \item Take action \( A \) and observe the reward \( R \) and the next state \( S' \).
+        \item Choose the next action \( A' \) using the same exploration policy.
+        \item Calculate the TD target:
+        \[ \text{TD target} = R + \gamma \cdot Q(S', A') \]
+        \item Update the action-value function:
+        \[ Q(S, A) \leftarrow Q(S, A) + \alpha \cdot (\text{TD target} - Q(S, A)) \]
+        where \( \alpha \) is the learning rate.
+        \item Set \( S \) to \( S' \) and \( A \) to \( A' \).
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Final Optimal Policy}:
+\begin{itemize}
+    \item The final optimal policy \( \pi \) can be derived from the learned action-value function \( Q(s, a) \).
+    \item For each state \( s \), choose the action \( a \) that maximizes \( Q(s, a) \):
+    \[ \pi(s) = \arg\max_a Q(s, a) \]
+    \item The optimal policy \( \pi \) specifies the best action to take in each state to maximize the expected cumulative reward over time.
+\end{itemize}
+
+\end{document}

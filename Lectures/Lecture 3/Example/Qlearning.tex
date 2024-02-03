@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+\section*{Example: Off-policy TD Control - Q-learning for Simple Grid World}
+
+Consider a 3x3 grid world where the agent can move left, right, up, or down. The grid has a reward of $-1$ for each step and a reward of $+10$ for reaching the goal state. The discount factor $\gamma$ is set to $0.9$.
+
+The Q-learning algorithm updates the Q-values based on observed transitions and rewards. The update rule for Q-values is given by:
+
+\[
+Q(s, a) \leftarrow Q(s, a) + \alpha \left[ R + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
+\]
+
+where:
+\begin{itemize}
+    \item $Q(s, a)$ is the Q-value for state $s$ and action $a$,
+    \item $\alpha$ is the learning rate,
+    \item $R$ is the reward received after taking action $a$ in state $s$,
+    \item $\gamma$ is the discount factor,
+    \item $s'$ is the next state,
+    \item $a'$ is the next action.
+\end{itemize}
+
+Here's a step-by-step example of how Q-learning can estimate the Q-values for the grid world:
+
+\begin{enumerate}
+    \item \textbf{Initialization}: Start with initial Q-values of zero for all state-action pairs.
+    
+    \[
+    \begin{array}{|c|c|c|}
+    \hline
+    \text{State} & \text{Action (left)} & \text{Action (right)} \\
+    \hline
+    S1 & 0 & 0 \\
+    S2 & 0 & 0 \\
+    G & 0 & 0 \\
+    \hline
+    \end{array}
+    \]
+    
+    \item \textbf{Agent's Action}: The agent selects an action based on an $ \epsilon $-greedy policy. Let's say the agent selects to move right from state S1 ($S1 \rightarrow S2$).
+    
+    \item \textbf{Transition}: The agent transitions to state S2 and receives a reward of -1.
+    
+    \item \textbf{Update Q-Value for State S1 and Action Right}:
+    
+    \[
+    \begin{aligned}
+    Q(S1, \text{right}) &\leftarrow Q(S1, \text{right}) + \alpha \left[ -1 + \gamma \max_{a'} Q(S2, a') - Q(S1, \text{right}) \right] \\
+    &\leftarrow 0 + \alpha \left[ -1 + 0.9 \times 0 - 0 \right] \\
+    &\leftarrow \alpha \times (-1)
+    \end{aligned}
+    \]
+    
+    \item \textbf{Update Q-Value for State S2 and Action Left}:
+    
+    Since there are no further actions in this episode, the Q-value for state S2 remains unchanged.
+    
+    \item \textbf{End of Episode}: The episode ends.
+    
+    \item \textbf{Repeat}: Repeat the above steps for multiple episodes to update Q-values and improve the policy.
+\end{enumerate}
+
+The Q-learning algorithm iteratively updates the Q-values based on observed transitions and rewards, gradually learning the optimal policy for the grid world.
+
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{array}
+
+\begin{document}
+
+\section*{Example: SARSA for Grid World}
+
+Consider a simple 3x3 grid world where an agent can move left, right, up, or down. The grid has a reward of $-1$ for each step and a reward of $+10$ for reaching the goal state. The discount factor $\gamma$ is set to $0.9$.
+
+The SARSA (State-Action-Reward-State-Action) algorithm updates the Q-values based on the observed transitions (state, action, reward, next state, next action) and uses an epsilon-greedy policy for exploration and exploitation.
+
+Let's initialize the Q-values for each state-action pair to zero:
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\text{State} & \text{Left} & \text{Right} & \text{Up} &\text{Down} \\ 
+\hline 
+S1 & 0 & 0 & 0 & 0 \\ 
+\hline 
+S2 & 0 & 0 & 0 & 0 \\ 
+\hline 
+G & 0 &  0 & 0 & 0 \\ 
+\hline 
+\end{tabular} 
+ 
+\end{center}
+
+
+Now, let's start the SARSA algorithm. We'll use an epsilon-greedy policy with $\epsilon = 0.1$ for exploration.
+
+\begin{enumerate}
+    \item \textbf{Initialization}: Start at a random state (e.g., S1).
+    \item \textbf{Action Selection}: Use the epsilon-greedy policy to select an action (e.g., with probability $\epsilon = 0.1$ choose a random action, otherwise choose the action with the highest Q-value).
+    \item \textbf{Action Execution and Observation}: Execute the selected action and observe the reward and the next state.
+    \item \textbf{Q-Value Update}: Update the Q-value for the current state-action pair using the SARSA update rule:
+    \[
+    Q(s, a) \leftarrow Q(s, a) + \alpha \left( r + \gamma Q(s', a') - Q(s, a) \right)
+    \]
+    where:
+    \begin{itemize}
+        \item $\alpha$ is the learning rate,
+        \item $r$ is the observed reward,
+        \item $\gamma$ is the discount factor,
+        \item $s'$ is the next state,
+        \item $a'$ is the next action.
+    \end{itemize}
+    \item \textbf{State Transition}: Move to the next state.
+    \item \textbf{Repeat Steps 2-5 Until Goal State is Reached or Maximum Number of Steps is Reached}.
+    \item \textbf{Policy Improvement}: After training, the policy can be improved by selecting the action with the highest Q-value in each state.
+\end{enumerate}
+
+After training, the Q-values will converge to approximate the optimal Q-values for each state-action pair, and the agent can use these Q-values to make decisions in the grid world environment.
+
+\end{document}
