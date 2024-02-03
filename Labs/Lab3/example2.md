@@ -40,30 +40,27 @@ $1$.
 
 We can calculate the Q-values for each state-action pair using the
 Bellman equation and the given rewards. Let's start with the initial
-Q-values: $$\begin{aligned}
-Q(S, \text{left}) &= 0 \\
-Q(S, \text{right}) &= 0 \\
-Q(S, \text{up}) &= 0 \\
-Q(S, \text{down}) &= 0 \\
-\end{aligned}$$
+Q-values: 
+$$Q(S,left)=0$$
+$$Q(S,right)=0$$
+$$Q(S,up)=0$$
+$$Q(S,down)=0$$
 
 To update the Q-values, we apply the Bellman equation for each
 state-action pair. For example, to update $Q(S, \text{left})$:
-$$\begin{aligned}
-Q(S, \text{left}) &= -1 + 0.9 \times \max(Q(\text{next state}, \text{all actions})) \\
-&= -1 + 0.9 \times \max(Q(S, \text{left}), Q(S, \text{right}), Q(S, \text{up}), Q(S, \text{down})) \\
-&= -1 + 0.9 \times \max(0, 0, 0, 0) \\
-&= -1
-\end{aligned}$$
+$$Q(S,left) = -1 + 0.9 \times \max(Q(next state,all actions))$$
+$$=-1 + 0.9 \times \max(Q(S,left),Q(S,right),Q(S,up),Q(S,down))$$
+$$= -1 + 0.9 \times \max(0, 0, 0, 0)$$
+$$= -1$$
+ 
 
 Similarly, we can update $Q(S, \text{right})$, $Q(S, \text{up})$, and
 $Q(S, \text{down})$. After updating, the Q-values become:
-$$\begin{aligned}
-Q(S, \text{left}) &= -1 \\
-Q(S, \text{right}) &= -1 \\
-Q(S, \text{up}) &= -1 \\
-Q(S, \text{down}) &= -1 \\
-\end{aligned}$$
+$$Q(S, \text{left}) = -1$$
+$$Q(S, \text{right}) = -1$$
+$$Q(S, \text{up}) = -1$$
+$$Q(S, \text{down}) = -1$$
+
 
 These updated Q-values reflect the expected cumulative rewards the agent
 can achieve from each state-action pair following an optimal policy in
