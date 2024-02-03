@@ -1,13 +1,10 @@
 
 # Example 1:The Bellman equation of the value function
 
-
 Consider a simple grid world with three states ($S1$, $S2$, and $G$) and
 two actions (left and right). The agent receives a reward of -1 for each
 step and a reward of +10 for reaching the goal state $G$. The discount
 factor $\gamma$ is set to 0.9.
-
-$$V^*(s) = \max_{a} \left( R(s, a) + \gamma \sum_{s'} P(s' | s, a) V^*(s') \right)$$
 The Bellman equation for the value function $V(s)$ of a state $s$ in
 this grid world is:
 
