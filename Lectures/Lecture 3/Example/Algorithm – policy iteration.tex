@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\section*{Policy Iteration Algorithm}
+
+\begin{algorithm}
+\caption{Policy Iteration}
+\label{alg:policy_iteration}
+\begin{algorithmic}[1]
+\STATE Initialize a random policy $\pi$
+\REPEAT
+    \STATE \textbf{Policy Evaluation:}
+    \STATE Initialize $V(s) = 0$ for all states $s$
+    \REPEAT
+        \FORALL{states $s$}
+            \STATE $V_{\text{new}}(s) = \sum_{a} \pi(a|s) \sum_{s', r} p(s', r|s, a)[r + \gamma V(s')]$
+        \ENDFOR
+        \STATE $V \leftarrow V_{\text{new}}$
+    \UNTIL{convergence}
+    \STATE \textbf{Policy Improvement:}
+    \STATE Policy-stable $\leftarrow$ \textbf{true}
+    \FORALL{states $s$}
+        \STATE $old\_action \leftarrow \pi(s)$
+        \STATE $\pi(s) \leftarrow \arg\max_{a} \sum_{s', r} p(s', r|s, a)[r + \gamma V(s')]$
+        \IF{$old\_action \neq \pi(s)$}
+            \STATE Policy-stable $\leftarrow$ \textbf{false}
+        \ENDIF
+    \ENDFOR
+\UNTIL{Policy-stable}
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

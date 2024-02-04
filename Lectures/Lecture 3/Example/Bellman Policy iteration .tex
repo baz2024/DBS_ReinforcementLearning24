@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Bellman Equation for Policy Iteration}
+
+The Bellman equation for policy iteration is given by:
+
+\begin{equation}
+V^{\pi}(s) = \sum_{a} \pi(a|s) \sum_{s', r} p(s', r|s, a)[r + \gamma V^{\pi}(s')]
+\end{equation}
+
+In this equation:
+\begin{itemize}
+    \item \( V^{\pi}(s) \) represents the value of state \( s \) under policy \( \pi \).
+    \item \( \pi(a|s) \) is the probability of taking action \( a \) in state \( s \) under policy \( \pi \).
+    \item \( p(s', r|s, a) \) is the transition probability from state \( s \) to state \( s' \) with reward \( r \) after taking action \( a \).
+    \item \( \gamma \) is the discount factor.
+    \item \( V^{\pi}(s') \) is the value of the next state \( s' \) under policy \( \pi \).
+\end{itemize}
+
+This equation describes how the value of a state under a policy is the sum of the expected immediate reward and the discounted value of the next state, weighted by the transition probabilities and the policy's action probabilities.
+
+\end{document}
