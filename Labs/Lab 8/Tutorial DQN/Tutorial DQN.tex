@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=red]{hyperref}
+\title{Implementing Double DQN and Dueling DQN in Pytorch}
+\author{Your Name}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+In this tutorial, we will discuss the implementation of Double Deep Q-Network (Double DQN) and Dueling Deep Q-Network (Dueling DQN) algorithms in reinforcement learning using LaTeX.
+
+\section{Double DQN Algorithm}
+The Double Deep Q-Network (Double DQN) algorithm is an extension of the DQN algorithm that aims to reduce overestimation of Q-values. It achieves this by using two separate networks for action selection and evaluation. Here is the algorithm:
+
+\begin{algorithm}
+\caption{Double DQN Algorithm}\label{alg:double_dqn}
+\begin{algorithmic}[1]
+\State Initialize two Q-networks: $Q$ and $Q'$
+\State Initialize target network weights: $Q' \gets Q$
+\For{each episode}
+    \State Initialize state $s$
+    \For{each step in episode}
+        \State Select action $a$ using $Q$ with $\epsilon$-greedy policy
+        \State Execute action $a$, observe reward $r$ and new state $s'$
+        \State Select action $a'$ using $Q'$ with $\epsilon$-greedy policy
+        \State Update $Q(s, a) \gets Q(s, a) + \alpha[r + \gamma Q'(s', a') - Q(s, a)]$
+        \State Update state $s \gets s'$
+    \EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\section{Dueling DQN Algorithm}
+The Dueling Deep Q-Network (Dueling DQN) algorithm is another extension of the DQN algorithm that separates the estimation of state values and action advantages. Here is the algorithm:
+
+\begin{algorithm}
+\caption{Dueling DQN Algorithm}\label{alg:dueling_dqn}
+\begin{algorithmic}[1]
+\State Initialize two networks: $V$ and $A$
+\For{each episode}
+    \State Initialize state $s$
+    \For{each step in episode}
+        \State Compute $V(s)$ and $A(s, a)$ for all actions $a$
+        \State Compute Q-values: $Q(s, a) = V(s) + (A(s, a) - \text{mean}(A(s, a')))$
+        \State Select action $a$ using $\epsilon$-greedy policy based on $Q$
+        \State Execute action $a$, observe reward $r$ and new state $s'$
+        \State Update $V(s)$ and $A(s, a)$ using TD error
+        \State Update state $s \gets s'$
+    \EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\section{implementation}
+\begin{enumerate}
+\item \href{https://github.com/dxyang/DQN_pytorch}{This repo is a PyTorch implementation of Vanilla DQN, Double DQN, and Dueling DQN based off these papers.}
+\item \href{https://pytorch.org/tutorials/intermediate/mario_rl_tutorial.html}{This tutorial walks you through the fundamentals of Deep Reinforcement Learning. At the end, you will implement an AI-powered Mario (using Double Deep Q-Networks) that can play the game by itself.}
+\item \href{https://youtu.be/H9uCYnG3LlE?si=68NrQsa_Xz1wyTF4}{In this Yputube tutorial we'll learn how to implement dueling double deep q learning in the open ai gym.}
+\end{enumerate}
+
+
+
+
+
+\section{Conclusion}
+In this tutorial, we have discussed the implementation of Double DQN and Dueling DQN algorithms in reinforcement learning using LaTeX. These algorithms are extensions of the DQN algorithm and aim to improve learning efficiency and stability.
+
+\end{document}
